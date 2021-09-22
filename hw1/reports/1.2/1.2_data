@@ -1,0 +1,17 @@
+- params: all default except for eval_batch_size
+    - network: size = 64; n_layers = 2; learning_rate = 5e-3
+    - n_iter = 1
+    - ep_len: 1000
+    - eval_batch_size: 10000
+
+Ant environment:
+- Eval_AverageReturn : 3354.521484375
+- Eval_StdReturn : 1254.992919921875
+- Train_AverageReturn : 4713.6533203125
+- Percentage of expert: 71.17%
+
+Hopper environment:
+- Eval_AverageReturn : 248.86544799804688
+- Eval_StdReturn : 82.5468978881836
+- Train_AverageReturn : 3772.67041015625
+- Percentage of expert: 6.60%

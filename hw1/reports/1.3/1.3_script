@@ -1,0 +1,50 @@
+!python cs285/scripts/run_hw1.py \
+    --expert_policy_file cs285/policies/experts/Hopper.pkl \
+    --env_name Hopper-v2 --exp_name bc_hopper --n_iter 1 \
+    --expert_data cs285/expert_data/expert_data_Hopper-v2.pkl \
+    --video_log_freq -1 \
+    --eval_batch_size 10000 --num_agent_train_steps_per_iter 250
+
+!python cs285/scripts/run_hw1.py \
+    --expert_policy_file cs285/policies/experts/Hopper.pkl \
+    --env_name Hopper-v2 --exp_name bc_hopper --n_iter 1 \
+    --expert_data cs285/expert_data/expert_data_Hopper-v2.pkl \
+    --video_log_freq -1 \
+    --eval_batch_size 10000 --num_agent_train_steps_per_iter 500
+
+!python cs285/scripts/run_hw1.py \
+    --expert_policy_file cs285/policies/experts/Hopper.pkl \
+    --env_name Hopper-v2 --exp_name bc_hopper --n_iter 1 \
+    --expert_data cs285/expert_data/expert_data_Hopper-v2.pkl \
+    --video_log_freq -1 \
+    --eval_batch_size 10000 --num_agent_train_steps_per_iter 1000
+
+!python cs285/scripts/run_hw1.py \
+    --expert_policy_file cs285/policies/experts/Hopper.pkl \
+    --env_name Hopper-v2 --exp_name bc_hopper --n_iter 1 \
+    --expert_data cs285/expert_data/expert_data_Hopper-v2.pkl \
+    --video_log_freq -1 \
+    --eval_batch_size 10000 --num_agent_train_steps_per_iter 1500
+
+!python cs285/scripts/run_hw1.py \
+    --expert_policy_file cs285/policies/experts/Hopper.pkl \
+    --env_name Hopper-v2 --exp_name bc_hopper --n_iter 1 \
+    --expert_data cs285/expert_data/expert_data_Hopper-v2.pkl \
+    --video_log_freq -1 \
+    --eval_batch_size 10000 --num_agent_train_steps_per_iter 2000
+
+# plotting
+x = [250, 500, 1000, 1500, 2000]
+y = [147.54, 210.32, 248.86, 475.17, 892.23]
+yerr = [1.50, 1.35, 82.54, 15.30, 247.45]
+
+fig, ax = plt.subplots()
+ax.errorbar(x, y,
+            yerr=yerr,
+            fmt='-o')
+
+ax.set_xlabel('num_agent_train_steps_per_iter')
+ax.set_ylabel('Eval_AverageReturn')
+ax.set_title('Hopper environment')
+
+plt.show()

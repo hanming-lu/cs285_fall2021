@@ -1,0 +1,42 @@
+- expert: 3772.67
+- BC: 248.86
+
+********** Iteration 0 ************
+Eval_AverageReturn : 248.86544799804688
+Eval_StdReturn : 82.5468978881836
+
+********** Iteration 1 ************
+Eval_AverageReturn : 1162.2899169921875
+Eval_StdReturn : 198.26080322265625
+
+********** Iteration 2 ************
+Eval_AverageReturn : 2723.029052734375
+Eval_StdReturn : 668.8157958984375
+
+********** Iteration 3 ************
+Eval_AverageReturn : 3016.70849609375
+Eval_StdReturn : 748.4251098632812
+
+********** Iteration 4 ************
+Eval_AverageReturn : 3704.84912109375
+Eval_StdReturn : 10.88272476196289
+
+********** Iteration 5 ************
+Eval_AverageReturn : 1584.0413818359375
+Eval_StdReturn : 34.483612060546875
+
+********** Iteration 6 ************
+Eval_AverageReturn : 3786.440673828125
+Eval_StdReturn : 1.9181488752365112
+
+********** Iteration 7 ************
+Eval_AverageReturn : 3771.37353515625
+Eval_StdReturn : 4.8466691970825195
+
+********** Iteration 8 ************
+Eval_AverageReturn : 3769.04541015625
+Eval_StdReturn : 3.6819252967834473
+
+********** Iteration 9 ************
+Eval_AverageReturn : 3581.990966796875
+Eval_StdReturn : 33.951725006103516

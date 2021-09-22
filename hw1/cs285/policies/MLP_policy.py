@@ -80,12 +80,17 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
         else:
             observation = obs[None]
 
-        # TODO return the action that the policy prescribes
-        raise NotImplementedError
+        # DONE: return the action that the policy prescribes
+        observation = ptu.from_numpy(observation)
+
+        if self.discrete:
+            return ptu.to_numpy(self.logits_na(observation))
+        else:
+            return ptu.to_numpy(self.mean_net(observation))
 
     # update/train this policy
-    def update(self, observations, actions, **kwargs):
-        raise NotImplementedError
+    # def update(self, observations, actions, **kwargs):
+    #     raise NotImplementedError
 
     # This function defines the forward pass of the network.
     # You can return anything you want, but you should be able to differentiate
@@ -93,8 +98,13 @@ class MLPPolicy(BasePolicy, nn.Module, metaclass=abc.ABCMeta):
     # return more flexible objects, such as a
     # `torch.distributions.Distribution` object. It's up to you!
     def forward(self, observation: torch.FloatTensor) -> Any:
-        raise NotImplementedError
-
+        if self.discrete:
+            return self.logits_na(observation)
+        else:
+            return distributions.Normal(
+                self.mean_net(observation), 
+                torch.exp(self.logstd)
+            ).rsample()
 
 #####################################################
 #####################################################
@@ -108,8 +118,14 @@ class MLPPolicySL(MLPPolicy):
             self, observations, actions,
             adv_n=None, acs_labels_na=None, qvals=None
     ):
-        # TODO: update the policy and return the loss
-        loss = TODO
+        # DONE: update the policy and return the loss
+        self.optimizer.zero_grad()
+        pred_actions = self.forward(ptu.from_numpy(observations))
+        actions = ptu.from_numpy(actions)
+        
+        loss = self.loss(pred_actions, actions)
+        loss.backward()
+        self.optimizer.step()
         return {
             # You can add extra logging information here, but keep this line
             'Training Loss': ptu.to_numpy(loss),

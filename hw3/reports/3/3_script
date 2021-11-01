@@ -1,0 +1,5 @@
+'target_update_freq'= 3000(default), 750, 1500, 6000
+!python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_update_freq3000
+!python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_update_freq750
+!python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_update_freq1500
+!python cs285/scripts/run_hw3_dqn.py --env_name LunarLander-v3 --exp_name q3_update_freq6000
